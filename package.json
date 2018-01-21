@@ -13,6 +13,14 @@
     "cli",
     "command-line"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ujc/toolog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ujc/toolog/issues"
+  },
+  "homepage": "https://github.com/ujc/toolog#readme",
   "author": "Uri Chandler",
   "license": "MIT",
   "dependencies": {
