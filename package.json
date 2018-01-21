@@ -1,0 +1,21 @@
+{
+  "name": "toolog",
+  "version": "0.0.1",
+  "description": "A mini logger for CLI tools",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha tests/**/*.js"
+  },
+  "keywords": [
+    "logger",
+    "log",
+    "logging",
+    "cli",
+    "command-line"
+  ],
+  "author": "Uri Chandler",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.1.2"
+  }
+}
