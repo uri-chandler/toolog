@@ -1,6 +1,6 @@
 {
   "name": "toolog",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A mini logger for CLI tools",
   "main": "app.js",
   "scripts": {
@@ -24,6 +24,7 @@
   "author": "Uri Chandler",
   "license": "MIT",
   "dependencies": {
+    "cli-banner": "^1.0.3",
     "colors": "^1.1.2"
   }
 }
