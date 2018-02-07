@@ -14,11 +14,13 @@ module.exports = class Toolog {
     }
 
     _log(type, msg, ...args){
-        try {
-            msg = JSON.stringify(msg)
-        }
-        catch(e) {
-            msg = msg.toString();
+        if (typeof msg !== 'string'){
+            try {
+                msg = JSON.stringify(msg)
+            }
+            catch(e) {
+                msg = msg.toString();
+            }
         }
 
 
