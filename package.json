@@ -1,6 +1,6 @@
 {
   "name": "toolog",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A mini logger for CLI tools",
   "main": "app.js",
   "scripts": {

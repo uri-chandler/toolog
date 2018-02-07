@@ -14,6 +14,14 @@ module.exports = class Toolog {
     }
 
     _log(type, msg, ...args){
+        try {
+            msg = JSON.stringify(msg)
+        }
+        catch(e) {
+            msg = msg.toString();
+        }
+
+
         console.log(this._logPrefix + msg[colorTypesMap[type]], ...args);
     }
 
