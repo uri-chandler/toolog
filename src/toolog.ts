@@ -47,7 +47,7 @@ export class Toolog {
     }
 
     ok(message?:string) {
-        this._log('done', ` -> Ok${message ? '('+message+')' : ''}`);
+        this._log('done', ` -> Ok${message ? '('+message+')' : ''}\n`);
     }
 
     banner(message:string){

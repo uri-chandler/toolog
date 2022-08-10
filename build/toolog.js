@@ -44,7 +44,7 @@ class Toolog {
         this._log('done', message, ...args);
     }
     ok(message) {
-        this._log('done', ` -> Ok${message ? '(' + message + ')' : ''}`);
+        this._log('done', ` -> Ok${message ? '(' + message + ')' : ''}\n`);
     }
     banner(message) {
         console.log((0, cli_banner_1.default)(message, { borderColor: 'blue' }));
