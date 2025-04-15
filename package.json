@@ -1,8 +1,11 @@
 {
   "name": "toolog",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A mini logger for CLI tools",
   "main": "build/toolog.js",
+  "scripts": {
+    "test": "ts-node src/toolog.test.ts"
+  },
   "keywords": [
     "logger",
     "log",
@@ -21,8 +24,9 @@
   "author": "Uri Chandler",
   "license": "MIT",
   "dependencies": {
+    "boxen": "^8.0.1",
     "chalk": "^4.1.2",
-    "cli-banner": "^1.0.3"
+    "ora": "^8.2.0"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",

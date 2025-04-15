@@ -1,5 +1,6 @@
 import chalk from 'chalk';
-import banner from 'cli-banner';
+import boxen from 'boxen';
+import ora, { Ora } from 'ora';
 
 enum LOG_TYPES {
     info  = 'white',
@@ -11,12 +12,23 @@ enum LOG_TYPES {
 
 export class Toolog {
     _logPrefix:string;
+    _spinner: Ora;
 
-    constructor(logPrefix:string){
+    constructor(logPrefix:string, spinner?: string) {
         this._logPrefix = chalk.white('[') + chalk.blue(logPrefix) + chalk.white(']: ');
+        this._spinner = ora({
+            prefixText: this._logPrefix.slice(0, -1),
+            spinner: spinner as any
+        });
     }
 
     _log(type: keyof typeof LOG_TYPES, message:any, ...args:any){
+        let wasSpinning: boolean = false;;
+        if (this._spinner.isSpinning) {
+            wasSpinning = true;
+            this.stop();
+        }
+
         if (typeof message !== 'string'){
             try {
                 message = JSON.stringify(message)
@@ -28,6 +40,10 @@ export class Toolog {
 
         const color = LOG_TYPES[type];
         console.log(this._logPrefix + chalk[color](message), ...args);
+
+        if (wasSpinning) {
+            this.spinner(this._spinner.text);
+        }
     }
 
     info(message?:any, ...args:any) {
@@ -47,12 +63,28 @@ export class Toolog {
     }
 
     ok(message?:string) {
-        this._log('done', ` -> Ok${message ? '('+message+')' : ''}\n`);
+        this._log('done', ` -> ok${message ? '('+message+')' : ''}\n`);
     }
 
     banner(message:string){
-        console.log(banner(message, {borderColor: 'blue'}));
+        console.log(
+            boxen(
+                message,
+                {
+                    borderColor: 'blue',
+                    width: 80,
+                    padding: 1,
+                    textAlignment: "center"
+                }
+            )
+        );
+    }
+
+    spinner(message?: string) {
+        this._spinner.start(message);
+    }
+
+    stop() {
+        this._spinner.stop();
     }
 };
-
-export const toolog = new Toolog('log');
