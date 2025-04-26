@@ -1,9 +1,9 @@
-import { Toolog } from "./toolog";
+import { Toolog } from "./toolog.js";
 
 
 async function main() {
     const logger = new Toolog("toolog-tests");
-    
+
     logger.banner('Toolog Tests');
     logger.info('This is a test');
     logger.warn('This is a test');
@@ -27,13 +27,13 @@ async function main() {
 
     await seconds(3);
     logger.ok("Info while spinning");
-    
-    
+
+
     await seconds(3);
     logger.stop();
 }
 
-async function seconds(ms:number) {
+async function seconds(ms: number) {
     return new Promise(r => setTimeout(r, ms * 1000));
 }
 

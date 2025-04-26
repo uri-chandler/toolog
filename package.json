@@ -1,10 +1,10 @@
 {
   "name": "toolog",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A mini logger for CLI tools",
   "main": "build/toolog.js",
   "scripts": {
-    "test": "ts-node src/toolog.test.ts"
+    "test": "tsx src/toolog.test.ts"
   },
   "keywords": [
     "logger",
@@ -26,10 +26,11 @@
   "dependencies": {
     "boxen": "^8.0.1",
     "chalk": "^4.1.2",
-    "ora": "^8.2.0"
+    "ora": "^8.2.0",
+    "tsx": "^4.19.3"
   },
   "devDependencies": {
-    "ts-node": "^10.9.1",
     "typescript": "^4.7.4"
-  }
+  },
+  "type": "module"
 }
